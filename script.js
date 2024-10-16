@@ -1,7 +1,14 @@
-// const express = require("express");
-// const app = express();
+const express = require("express");
+const app = express();
 
-// app.use(express.static('view'));
+app.use(express.static('view'));
+app.get('/profile',Token, (req, res) => {
+    console.log('user logged')
+   res.send('<h1>Success</h1>');
+});
+function Token(req,res,next){
+    console.log('creating token')
+}
 
 // const path =require('path')
 
@@ -17,9 +24,10 @@
 //     res.status(404).send('<h1>404</h1>');
 // });
 
-// const PORT = process.env.PORT || 3001;
-// app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-//second
+const PORT = process.env.PORT || 3000;
+app.listen(PORT);
+
+//second example
 // var express = require('express');  
 // var app = express();  
 // app.use(express.static('public'));  
@@ -44,52 +52,54 @@
 // })  
 
 // Import the express module
-const express = require('express');
 
-// Create an instance of an Express application
-const app = express();
+//third example
+// const express = require('express');
 
-// Define the port number
-const port = 3000;
+// // Create an instance of an Express application
+// const app = express();
 
-// Route for the root path
-app.get('/', (req, res) => {
-  res.send('Welcome to the Home Page!');
-});
+// // Define the port number
+// const port = 3000;
 
-// Route for /about path
-app.get('/about', (req, res) => {
-  res.send('This is the About Page!');
-});
+// // Route for the root path
+// app.get('/', (req, res) => {
+//   res.send('Welcome to the Home Page!');
+// });
 
-// Route for /users path
-app.get('/users', (req, res) => {
-  res.send('User List');
-});
+// // Route for /about path
+// app.get('/about', (req, res) => {
+//   res.send('This is the About Page!');
+// });
 
-// Route for /users/:id path with URL parameter
-app.get('/users/:id', (req, res) => {
-  const userId = req.params.id; // Access the URL parameter
-  res.send(`User ID: ${userId}`);
-});
+// // Route for /users path
+// app.get('/users', (req, res) => {
+//   res.send('User List');
+// });
 
-// Route for /products path
-app.get('/products', (req, res) => {
-  res.send('Product List');
-});
+// // Route for /users/:id path with URL parameter
+// app.get('/users/:id', (req, res) => {
+//   const userId = req.params.id; // Access the URL parameter
+//   res.send(`User ID: ${userId}`);
+// });
 
-// Route for /products/:productId path
-app.get('/products/:productId', (req, res) => {
-  const productId = req.params.productId; // Access the URL parameter
-  res.send(`Product ID: ${productId}`);
-});
+// // Route for /products path
+// app.get('/products', (req, res) => {
+//   res.send('Product List');
+// });
 
-// Handle 404 errors
-app.use((req, res) => {
-  res.status(404).send('404 Not Found');
-});
+// // Route for /products/:productId path
+// app.get('/products/:productId', (req, res) => {
+//   const productId = req.params.productId; // Access the URL parameter
+//   res.send(`Product ID: ${productId}`);
+// });
 
-// Start the server
-app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
-});
+// // Handle 404 errors
+// app.use((req, res) => {
+//   res.status(404).send('404 Not Found');
+// });
+
+// // Start the server
+// app.listen(port, () => {
+//   console.log(`Server running at http://localhost:${port}`);
+// });
